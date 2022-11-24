@@ -1,0 +1,14 @@
+name: 'Gradle - Build & Test'
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened] # only trigger on non-push PR events
+    branches: [ main ]
+  push:
+    branches: [ '**', 'main' ]
+jobs:
+  build-test:
+    uses: ikigai-digital/github-templates/.github/workflows/gradle-build-test.yml@main
+    with:
+      minimum-coverage: 70
+
