@@ -9,8 +9,7 @@ on:
 jobs:
   build-test:
     uses: ikigai-digital/github-templates/.github/workflows/gradle-build-test.yml@main
-    permissions: 
-      pull-requests: write    
+    permissions: write-all
     with:
       minimum-coverage: 0
   artifact-cleanup:
