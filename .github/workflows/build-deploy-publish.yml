@@ -9,6 +9,18 @@ on:
 jobs:
   build-test:
     uses: ikigai-digital/github-templates/.github/workflows/gradle-build-test.yml@main
+    permissions: 
+      pull-requests: write    
     with:
-      minimum-coverage: 70
+      minimum-coverage: 0
+  artifact-cleanup:
+    runs-on: ubuntu-latest
+    needs: build-test
+    if: always()
+    steps:
+      - name: Delete artifact
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: build-files
+
 
