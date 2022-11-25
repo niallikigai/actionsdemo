@@ -35,6 +35,10 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.test {
+	finalizedBy(tasks.jacocoTestReport)
+}
+
 tasks.jacocoTestReport {
 	dependsOn(tasks.test)
 	reports {
