@@ -4,7 +4,7 @@ on:
   push:
     branches: [ '**', 'main' ]
 env:
-  MIN_COVERAGE: 0
+  MIN_COVERAGE: 70
 jobs:
   build-test:
     permissions:
@@ -20,10 +20,8 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: wrapper
-
       - name: Execute Gradle build
-        run: ./gradlew clean build
-
+        run: ./gradlew --info clean build
       - name: Upload Build Output
         uses: actions/upload-artifact@v3
         with:
@@ -38,7 +36,6 @@ jobs:
         if: always()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
-
       - name: Publish Coverage Report
         id: jacoco_reporter
         uses: PavanMudigonda/jacoco-reporter@v4.6
@@ -49,7 +46,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_check_run: false
           minimum_coverage: ${{env.MIN_COVERAGE}}
-          fail_below_threshold: true
+          fail_below_threshold: false
           publish_only_summary: false
   artifact-cleanup:
     runs-on: ubuntu-latest
