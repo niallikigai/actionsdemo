@@ -6,7 +6,7 @@ on:
 env:
   MIN_COVERAGE: 0
 jobs:
-  gradle-build-test:
+  build-test:
     permissions:
       pull-requests: write
     runs-on: ubuntu-latest
