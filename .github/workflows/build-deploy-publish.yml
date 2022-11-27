@@ -20,7 +20,7 @@ jobs:
         with:
           gradle-version: wrapper
       - name: Execute Gradle build
-        run: ./gradlew --debug clean build
+        run: ./gradlew clean build
       - name: Upload Build Output
         uses: actions/upload-artifact@v3
         with:
