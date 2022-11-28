@@ -7,7 +7,7 @@ env:
   MIN_COVERAGE: 70
 jobs:
   build-test:
-    uses: niallikigai/github-templates/.github/workflows/gradle-build-test.yml@main
+    uses: niallikigai/actionsdemo/.github/workflows/gradle-build-template.yml@main
     with:
       minimum-coverage: ${{ env.MIN_COVERAGE }}
   artifact-cleanup:
