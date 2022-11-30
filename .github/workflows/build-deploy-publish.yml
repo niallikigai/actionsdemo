@@ -22,7 +22,6 @@ jobs:
     name: Push to ECR
     needs: build-test
     uses: niallikigai/actionsdemo/.github/workflows/push-to-ecr.yml@main
-    environment: development
     with: 
       build-files: build-files
       AWS_REGION: ${{ env.AWS_REGION }}
