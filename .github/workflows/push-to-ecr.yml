@@ -35,10 +35,10 @@ jobs:
 
       - name: Output vars
         run : |
-        echo: "Variables:"
-        echo: "Reg: $ECR_REGISTRY"
-        echo: "Repo: ${{inputs.ECR_REPOSITORY}}"
-        echo: "Tag: ${{ github.run_number }}"
+          echo "Variables:"
+          echo "Reg: $ECR_REGISTRY"
+          echo "Repo: ${{inputs.ECR_REPOSITORY}}"
+          echo "Tag: ${{ github.run_number }}"
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
