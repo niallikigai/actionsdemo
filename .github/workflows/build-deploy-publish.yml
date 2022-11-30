@@ -3,14 +3,16 @@ on:
   workflow_dispatch:
   push:
     branches: [ '**', 'main' ]
+
 env:
   MIN_COVERAGE: 70
   AWS_REGION: ap-southeast-1
-  ECR_REPOSITORY: ref-domain-order-service
-  ECS_SERVICE: order-service
+  ECR_REPOSITORY: actiondemo
+  ECS_SERVICE: actiondemo
   ECS_CLUSTER: ecs-fargate-ref-domain
   ECS_TASK_DEFINITION: .aws/ecs-task.json
   CONTAINER_NAME: actionsdemo
+
 jobs:
   build-test:
     name: Build and test
