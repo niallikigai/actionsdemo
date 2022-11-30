@@ -27,7 +27,7 @@ jobs:
     with: 
       build-files: build-files
       AWS_REGION: $AWS_REGION
-      ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+      ECR_REPOSITORY: $ECR_REPOSITORY
     outputs:
       image: ${{ steps.build-image.outputs.image }}
   artifact-cleanup:
