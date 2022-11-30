@@ -13,8 +13,10 @@ on:
       ECR_REPOSITORY:
         required: true
         type: string
-    outputs:
-      image-name: ${{ jobs.build-image.outputs.image }}
+    outputs: 
+      result:
+        description: The result of the build-image operation
+        value: ${{ jobs.push-to-ecr.outputs.image }}
 
 jobs:
 
