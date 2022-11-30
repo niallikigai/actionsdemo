@@ -14,7 +14,7 @@ on:
         required: true
         type: string
     outputs:
-      image-name: ${{ steps.build-image.outputs.image }}
+      image-name: ${{ jobs.build-image.outputs.image }}
 
 jobs:
 
